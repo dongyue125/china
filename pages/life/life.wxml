@@ -1,0 +1,33 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz'>发展历程</rich-text>
+      <rich-text class='htz yy_nav_se'>企业生活</rich-text>
+      <rich-text class='htz'>丰雷先生评选</rich-text>
+    </view>
+    <text>企业生活</text>
+    <text>秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好</text>
+  </view>
+  <view class='daren'>
+
+    <view class='daren_01'>
+      <video src='../../images/wg_1.mp4' poster='../../images/daren_03.jpg' ></video>
+    </view>
+
+    <view class='daren_01'>
+      <video src='../../images/wg_11.mp4' poster='../../images/daren_03.jpg' ></video>
+    </view>
+
+    <view class='daren_01'>
+      <video src='../../images/wg_11.mp4' poster='../../images/daren_03.jpg' ></video>
+    </view>
+
+    <view class='daren_01'>
+      <video src='../../images/wg_11.mp4' poster='../../images/daren_03.jpg' ></video>
+    </view>
+
+  </view>
+</view>
+<include src="../footer/footer.wxml"/>

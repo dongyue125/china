@@ -1,0 +1,18 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz'>共享记录</rich-text>
+      <rich-text class='htz yy_nav_se'>我的名片</rich-text>
+    </view>
+    <text>{{classname}}</text>
+    <text>{{description}}</text>
+  </view>
+  <view class='exclusive'>
+    <image src='../../images/exclusive.jpg' mode='widthFix'></image>
+    <image src='{{avatar}}'></image>
+    <image src='https://dadakan.com.cn/SmallApi.php?act=qrcode&uid={{uid}}'></image>
+  </view>
+</view>
+<include src="../foot/foot.wxml"/>

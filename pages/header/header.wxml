@@ -1,0 +1,20 @@
+<!--header.wxml-->
+  <view class='header'>
+    <view class="sp_header">
+      <view class="sp_nav {{hide}}" bindtap='click'> <span></span> <span></span> <span></span> </view>
+    </view>
+    <view class='logo' bindtap="showindex"><image src='../../images/index_03.png' mode="widthFix"></image></view>
+  </view>
+  <view class='nav'>
+    <view class="sjj_nav {{hide}}" >
+        <text catchtap='showindex'>首页</text>
+        <text catchtap="showdaren">穿搭达人</text>
+        <text catchtap="shownews" data-id="73">穿搭资讯</text>
+        <text catchtap="showddk">3d穿搭</text>
+        <text catchtap="shownews" data-id="75">流行资讯</text>
+        <text catchtap="showproduct" data-id="43">新品</text>
+        <text catchtap="showhistory">丰雷定制</text>
+		<text catchtap="showrecruiting">穿搭师招募</text>
+        <text catchtap="showcooperation">资源合作</text>
+    </view>
+  </view>

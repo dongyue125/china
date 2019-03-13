@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class="fldz">
+    <view class="fldz_01">
+      <text class='htz'>“搭搭看”穿搭服务公共平台</text>
+      <text class='gengduo' catchtap="showdaren">更多视频</text>
+    </view>
+    <video src='{{vurl}}' poster='{{vpic}}'></video>
+  </view>
+  <view class='ddk'>
+    <view class='htz ddk_01'>
+    男人不会穿 女人不喜欢
+    </view>
+    <view class='ddk_02' catchtap="showsddk">
+      <image src='{{dpic}}' mode="widthFix"></image>
+    </view>
+  </view>
+  <view class='lxzx' catchtap="shownews" data-id="75">
+    <image src='{{lpic}}' mode='widthFix'></image>
+    <text class='htz'>{{lname}}</text>
+  </view>
+  <view class='lxzx' catchtap="shownews" data-id="73">
+    <image src='{{cpic}}' mode='widthFix'></image>
+    <text class='htz'>{{cname}}</text>
+  </view>
+  <view class='qyzyzdz' catchtap="showhistory">
+    <image src='{{npic}}' mode="widthFix"></image>
+  </view>
+  <view class='qyzyzdz' catchtap="showrecruiting">
+    <image src='{{tpic}}' mode="widthFix"></image>
+  </view>
+  <view class='qyzyzdz' catchtap="showcooperation">
+    <image src='{{zpic}}' mode="widthFix"></image>
+  </view>
+</view>
+<include src="../footer/footer.wxml"/>

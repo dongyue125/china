@@ -1,0 +1,6 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <web-view src="https://fenglei.yuns1.top/"></web-view>
+</view>
+<include src="../footer/footer.wxml"/>

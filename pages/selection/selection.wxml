@@ -1,0 +1,77 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz'>发展历程</rich-text>
+      <rich-text class='htz'>企业生活</rich-text>
+      <rich-text class='htz yy_nav_se'>丰雷先生评选</rich-text>
+    </view>
+    <text>丰雷先生评选</text>
+    <text>秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好</text>
+  </view>
+  <view class='daren'>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_03.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>中国著名服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button catchtap='selectionshowshow'>了解更多</button>
+      </view>
+    </view>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_06.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button>了解更多</button>
+      </view>
+    </view>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_03.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>中国著名服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button>了解更多</button>
+      </view>
+    </view>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_06.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button>了解更多</button>
+      </view>
+    </view>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_03.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>中国著名服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button>了解更多</button>
+      </view>
+    </view>
+
+    <view class='daren_01'>
+      <image src='../../images/selection_06.jpg' mode='widthFix'></image>
+      <view class='daren_02'>
+        <rich-text>服装设计师韩璐璐</rich-text>
+        <span></span>
+        <text>韩璐璐（Lulu Han），毕业于意大利米兰马兰欧尼设计学院，HLL Fashion Studio创始人...</text>
+        <button>了解更多</button>
+      </view>
+    </view>
+
+  </view>
+</view>
+<include src="../footer/footer.wxml"/>

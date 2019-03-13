@@ -1,0 +1,6 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <web-view src="http://sytest037.zhcs.lcweb01.cn/ddk/ceshi.html"></web-view>
+</view>
+<include src="../foot/foot.wxml"/>

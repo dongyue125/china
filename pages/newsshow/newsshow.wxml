@@ -1,0 +1,24 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz yy_nav_se'>国际资讯</rich-text>
+      <rich-text class='htz'>国内资讯</rich-text>
+    </view>
+    <text>国内资讯</text>
+    <text>秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭</text>
+  </view>
+<view class='center'>
+  <view class='newsshow'>
+    <text class='htz'>​{{title}}</text>
+    <text>发布时间:{{time}} | 浏览次数：{{hits}}</text>
+    <view>
+		<import src="../../wxParse/wxParse.wxml"/>
+		<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+  </view>
+<view style='height:15px'></view>
+</view>
+</view>
+<include src="../footer/footer.wxml"/>

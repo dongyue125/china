@@ -1,0 +1,21 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz yy_nav_se'>穿搭师招募</rich-text>
+      <rich-text class='htz' catchtap="showresource">资源合作</rich-text>
+    </view>
+    <text>{{classname}}</text>
+    <text>{{description}}</text>
+  </view>
+  <view class='recruiting'>
+    <view class='center'>
+      <text class='htz recruiting_01'>职位描述</text>
+      <text>{{ms}}</text>
+<text class='htz recruiting_01'>职位要求</text>
+      <text>{{yq}}</text>
+    </view>
+  </view>
+</view>
+<include src="../footer/footer.wxml"/>

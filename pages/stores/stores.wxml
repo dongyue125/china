@@ -1,0 +1,54 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+  <view class='yy'>
+    <view class='yy_nav'>
+      <rich-text class='htz yy_nav_se'>体验店</rich-text>
+      <rich-text class='htz'>干洗服务</rich-text>
+    </view>
+    <text>体验店</text>
+    <text>秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好秀场上称霸的可能会是艺术感十足的创意设计款，但最后还是保守百搭的阿姨上班包卖得最好</text>
+  </view>
+    <view class='stores'>
+      <view class='stores_01'>
+        <image src='../../images/stores_03.jpg' mode='widthFix'></image>
+        <text class='htz'>南京街体验店</text>
+      </view>
+      <view class='stores_02'>
+        <video src='../../images/wg_1.mp4' poster='../../images/stores_05.jpg'></video>
+      </view>
+    </view>
+
+    <view class='stores'>
+      <view class='stores_01'>
+        <image src='../../images/stores_03.jpg' mode='widthFix'></image>
+        <text class='htz'>中街体验店</text>
+      </view>
+      <view class='stores_02'>
+        <video src='../../images/wg_1.mp4' poster='../../images/stores_05.jpg'></video>
+      </view>
+    </view>
+
+    <view class='stores'>
+      <view class='stores_01'>
+        <image src='../../images/stores_03.jpg' mode='widthFix'></image>
+        <text class='htz'>光荣街体验店</text>
+      </view>
+      <view class='stores_02'>
+        <video src='../../images/wg_1.mp4' poster='../../images/stores_05.jpg'></video>
+      </view>
+    </view>
+
+    <view class='stores'>
+      <view class='stores_01'>
+        <image src='../../images/stores_03.jpg' mode='widthFix'></image>
+        <text class='htz'>香格里拉体验店</text>
+      </view>
+      <view class='stores_02'>
+        <video src='../../images/wg_1.mp4' poster='../../images/stores_05.jpg'></video>
+      </view>
+    </view>
+
+    <view style='height:20px'></view>
+</view>
+<include src="../footer/footer.wxml"/>

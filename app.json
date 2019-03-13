@@ -1,0 +1,60 @@
+{
+  "pages": [
+	"pages/index/index",
+    "pages/history/history",
+    "pages/newsshow/newsshow",
+    "pages/news/news",
+    "pages/daren/daren",
+    "pages/ddk/ddk",
+	"pages/showddk/showddk",
+    "pages/subscribe/subscribe",
+    "pages/custom/custom",
+    "pages/spellgrouporder/spellgrouporder",
+    "pages/groupshare/groupshare",
+    "pages/spellgroup/spellgroup",
+    "pages/exclusive/exclusive",
+    "pages/distribution/distribution",
+    "pages/complete/complete",
+    "pages/topup/topup",
+    "pages/personal/personal",
+    "pages/vieworder/vieworder",
+    "pages/pay/pay",
+    "pages/submit/submit",
+    "pages/buy/buy",
+	"pages/cart/cart",
+	"pages/buycart/buycart",
+	
+	"pages/ceshi/ceshi",
+	
+    "pages/wash/wash",
+    "pages/stores/stores",
+    "pages/selectionshow/selectionshow",
+    "pages/selection/selection",
+    "pages/recommended/recommended",
+    "pages/recruiting/recruiting",
+    "pages/cooperation/cooperation",
+    "pages/productshow/productshow",
+    "pages/product/product",
+    "pages/header/header",
+    "pages/footer/footer",
+    "pages/foot/foot"
+  ],
+  
+ 
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+
+  
+  
+  "window": {
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "搭搭看穿搭服务平台",
+    "navigationBarTextStyle": "white"
+  }
+}
+	

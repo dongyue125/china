@@ -1,0 +1,42 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+<form bindsubmit="formSubmit">
+  <view class='productshow topup'>
+    <view class='center'>
+      <text>请输入充值金额</text>
+      <input type='number' name="money" value="" placeholder='0.00' />
+    </view>
+  </view>
+  <view class='topup_tj'>
+    <button form-type="submit">确认充值</button>
+  </view>
+
+  <view class='topup_the_rules'>
+    <text>{{classname}}</text>
+    <text>{{content}}</text>
+    <image src="../../images/vipzs.jpg" mode="widthFix"></image>
+    <text>{{content}}</text>
+    <text class="ts">*温馨提示：充值需谨慎，注意周围环境安全</text>
+  </view>
+</form>
+</view>
+<view style='height:54px'></view>
+<view class='footer_nav'>
+  <view class='footer_nav_01' bindtap="showindex">
+    <icon class="iconfont icon-shouye"></icon>
+    <text>首页</text>
+  </view>
+  <view class='footer_nav_01' bindtap="showproduct" data-id="43">
+     <icon class="iconfont icon-fenlei"></icon>
+    <text>新品</text>
+  </view>
+  <view class='footer_nav_01' bindtap="showcart">
+    <icon class="iconfont icon-gouwuche"></icon>
+    <text>购物车</text>
+  </view>
+  <button class='footer_nav_01' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    <icon class="iconfont icon-gerenzhongxin"></icon>
+    <text>个人中心</text>
+  </button>    
+</view>
