@@ -12,10 +12,11 @@ Page({
   },
   
    onLoad: function (options) {
+	   
     var that = this
 	const pid = decodeURIComponent(options.scene)
-	console.log(pid)
 	app.globalData.pid = pid
+	
     //网络请求 GET方法
     wx.request({
       url: requestUrl, //仅为示例，并非真实的接口地址
