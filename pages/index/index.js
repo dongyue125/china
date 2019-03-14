@@ -13,9 +13,9 @@ Page({
   
    onLoad: function (options) {
     var that = this
-	var pid = decodeURIComponent(options.scene)
-	app.globalData.pid = 3
-	console.log(app.globalData.pid)
+	const pid = decodeURIComponent(options.scene)
+	console.log(pid)
+	app.globalData.pid = pid
     //网络请求 GET方法
     wx.request({
       url: requestUrl, //仅为示例，并非真实的接口地址

@@ -47,21 +47,27 @@ Page({
   },
   
   
-  onShareAppMessage: function() {
-    let users = wx.getStorageSync('user');
+  onShareAppMessage: function(res) {
+	var that = this;
+	let uid = that.data.uid;
+	let url = 'https://dadakan.com.cn/SmallApi.php?act=qrcode&uid='+uid;
     if (res.from === 'button') {
-		
+		console.log('用户点击了页面分享按钮');
+	}else{
+		console.log('用户点击了右上角分享按钮');
 	}
     return {
-      title: '转发',
-      path: '/pages/index/index?from_uid=' + users.id,
-      success: function(res) {
-		  
-	  }
-    }
-
+		title: '我的名片',
+		path: '/pages/index/index?pid='+uid,
+		imageUrl: url,
+		success: function (res) {
+			console.log('成功', res)
+		},
+		fail: function (res){
+			console.log("分享失败",res)
+		}
+	}
   },
-  
   click: function () {
     this.setData({
       hide: !this.data.hide
