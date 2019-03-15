@@ -32,7 +32,6 @@ Page({
 					console.log(res.data.msg);
 				}else{
 					console.log(res.data);
-					var base64 = wx.arrayBufferToBase64(res.data);
 					that.setData({
 					  uid:res.data.uid,
 					  classname:res.data.classname,
@@ -50,6 +49,7 @@ Page({
   onShareAppMessage: function(res) {
 	var that = this;
 	let uid = that.data.uid;
+	console.log(uid);
 	let url = 'https://dadakan.com.cn/SmallApi.php?act=qrcode&uid='+uid;
     if (res.from === 'button') {
 		console.log('用户点击了页面分享按钮');

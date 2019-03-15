@@ -12,9 +12,13 @@ Page({
   },
   
    onLoad: function (options) {
-	   
     var that = this
-	const pid = decodeURIComponent(options.scene)
+	if(options.pid){
+		var pid = options.pid
+	}else{
+		var pid = 0
+	}
+	console.log(pid)
 	app.globalData.pid = pid
 	
     //网络请求 GET方法

@@ -43,13 +43,14 @@ Page({
 							wx.getStorage({
 								key: 'third_Session',
 								success(res) {
-									console.log(res.data);
+								  var pid = app.globalData.pid
 								  wx.request({
 									url: requestUrl,
 									data: {
 									  third_Session: res.data,
 									  username: nickName,
 									  avatar: avatarUrl,
+									  pid:pid,
 									  act: 'login_do',
 									},
 									success(res) {
