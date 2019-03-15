@@ -9,6 +9,9 @@ Page({
     takeSession: false,
     requestResult: '',
     hide: true,
+	
+	oid:'',
+	
     // input默认是1  
     num: 1,
     // 使用data数据对象设置样式名  
@@ -68,27 +71,89 @@ Page({
 	  return false;
 	}
 	else{
-		wx.request({
-		  url: requestUrl, //仅为示例，并非真实的接口地址
-		  method: "POST",
-		  data: {
-			act: 'do_recharge',
-			money : e.detail.value.money,
-		  },
-		  header: {
-			"Content-Type": "application/x-www-form-urlencoded"
-		  },
-		  success(res) {
-			console.log(res);
-			wx.showToast({
-				title: '支付成功！',
-				success(res){
-					wx.navigateTo({
-						url: '/pages/complete/complete',
-					});
-				}
-			})
-		  }
+		wx.getStorage({
+			key: 'third_Session',
+			success(res) {
+				wx.request({
+				  url: requestUrl, //仅为示例，并非真实的接口地址
+				  method: "POST",
+				  data: {
+					act: 'do_recharge',
+					session:res.data,
+					money : e.detail.value.money,
+				  },
+				  header: {
+					"Content-Type": "application/x-www-form-urlencoded"
+				  },
+				  success(res) {
+					if(res.data.error == 'fail'){
+						wx.showModal({
+							title: '提示',
+							showCancel: false,
+							content: res.data.msg,
+						});
+						return false;
+					}else{
+						that.setData({
+						  oid:res.data.oid,
+						})
+						wx.request({
+						  url: requestUrl, //仅为示例，并非真实的接口地址
+						  method: "POST",
+						  data: {
+							act: 'pay_recharge',
+							oid:res.data.oid,
+						  },
+						  header: {
+							"Content-Type": "application/x-www-form-urlencoded"
+						  },
+						  success(res) {
+							if(res.data.error == 'fail'){
+								wx.showModal({
+									title: '提示',
+									showCancel: false,
+									content: res.data.msg,
+								});
+								return false;
+							}else{
+								wx.requestPayment({
+									'timeStamp': res.data.timeStamp,
+									'nonceStr': res.data.nonceStr,
+									'package': res.data.package,
+									'signType': res.data.signType,
+									'paySign': res.data.paySign,
+									'success':function(res){
+										wx.request({
+										  url: requestUrl, //仅为示例，并非真实的接口地址
+										  data: {
+											act: 'update_recharge',
+											oid: that.data.oid,
+										  },
+										  header: {
+											'content-type': 'application/json' // 默认值
+										  },
+										  success(res) {
+											wx.navigateTo({
+												url: '/pages/complete/complete',
+											});
+										  }
+										})
+									},
+									'fail':function(res){
+										console.log('充值失败！');
+									},
+									'complete':function(res){
+										console.log(res);
+									}
+								})
+							}
+						  }
+						})
+						
+					}
+				  }
+				})
+			}
 		})
 	}
   },

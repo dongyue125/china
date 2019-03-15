@@ -38,7 +38,7 @@
   <view class='productshow top_up'>
     <text>账户余额</text>
     <text>￥{{money=='' ? "0.00" : money}}</text>
-    <button catchtap="showrecharge">充值</button>
+    <button catchtap="showrecharge">成为优惠会员</button>
   </view>
   
   <view class='productshow top_up'>
