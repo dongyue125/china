@@ -25,22 +25,7 @@
                 </view>
               </picker>
             </view>
-            <!-- <view class="section__title">地区选择器</view> -->
-            <view class="section">
-              <picker
-                mode="region"
-                bindchange="bindRegionChange"
-                value="{{region}}"
-                custom-item="{{customItem}}"
-              >
-                <view class="picker">
-                  请选择省市：<text>{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
-                </view>
-              </picker>
-            </view>
-
-            <input id="address" name="address" value="{{address}}" class="login-input" type="text" placeholder="请输入详细地址" />
-
+           
           </view>
           <button class="btn_login"  formType="submit">立即预约</button>
       </form>

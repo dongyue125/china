@@ -33,26 +33,28 @@ Page({
       success(res) {
         console.log(res);
         that.setData({
-          logo:res.data.logo,
-		  info:res.data.info,
-		  vpic:res.data.vpic,
-		  vurl:res.data.vurl,
-		  dpic:res.data.dpic,
+		  dclassname:res.data.dclassname,
+		  description:res.data.description,
+		  bpic:res.data.bpic,
+		  cclassname:res.data.cclassname,
+		  cdescription:res.data.cdescription,
+		  cdpic:res.data.cdpic,
+		  ndescription:res.data.ndescription,
+		  npic:res.data.npic,
+		  nlist:res.data.nlist,
+		  jclassname:res.data.jclassname,
+		  jdescription:res.data.jdescription,
+		  jpic:res.data.jpic,
+		  jlist:res.data.jlist,
 		  lname:res.data.lname,
 		  lpic:res.data.lpic,
 		  cname:res.data.cname,
 		  cpic:res.data.cpic,
-		  npic:res.data.npic,
+		  tname:res.data.tname,
 		  tpic:res.data.tpic,
+		  zname:res.data.zname,
 		  zpic:res.data.zpic,
-		  tel:res.data.tel,
-		  hezuo:res.data.hezuo,
-		  email:res.data.email,
-		  address:res.data.address,
-		  sign:res.data.sign,
-		  small:res.data.small,
-		  copyright:res.data.copyright,
-		  icp:res.data.icp,
+		 
         })
       }
     })
@@ -111,6 +113,12 @@ Page({
       url: '/pages/product/product?cid='+cid,
     });
   },
+  showproduct2: function (e) {
+	  var cid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/productsb/productsb?cid='+cid,
+    });
+  },
   showlife: function () {
     wx.navigateTo({
       url: '/pages/life/life',
@@ -121,9 +129,19 @@ Page({
       url: '/pages/custom/custom',
     });
   },
+  showmade: function () {
+    wx.navigateTo({
+      url: '/pages/made/made',
+    });
+  },
   showcooperation: function () {
     wx.navigateTo({
       url: '/pages/cooperation/cooperation',
+    });
+  },
+  showrecurit: function () {
+    wx.navigateTo({
+      url: '/pages/recruiting/recruiting',
     });
   },
   showrecruiting: function () {

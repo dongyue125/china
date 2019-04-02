@@ -13,6 +13,7 @@ Page({
   
   
   onLoad: function (options) {
+	  var WxParse = require('../../wxParse/wxParse.js');
     var that = this
 	var classid = options.cid
     //网络请求 GET方法
@@ -26,10 +27,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res),
+        console.log(res);
+		var temp = WxParse.wxParse('message', 'html', res.data.message, that, 5);
         that.setData({
           classname:res.data.classname,
-		  message:res.data.message,
+		  message:temp,
 		  news:res.data.news,
 		  clist:res.data.clist,
 		  cid:res.data.cid,

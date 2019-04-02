@@ -60,9 +60,9 @@ Page({
 										  nickname:res.data.nickname,
 										  money:res.data.money,
 										  allo:res.data.allo,
-										  confirmo:res.data.confirmo,
+										
 										  payment:res.data.payment,
-										  postgoods:res.data.postgoods,
+										 
 										})
 									  }else{
 										console.log('获取信息失败');

@@ -1,0 +1,30 @@
+<!--daren.wxml-->
+<include src="../header/header.wxml"/>
+<view class="container">
+<form bindsubmit="formSubmit">
+  <view class='topup_the_rules'>
+	<image src="../../images/vipzs.jpg" mode="widthFix"></image>
+  </view>
+  <view class='productshow topup'>
+    <view class='center'>
+      <text>产品名称：</text>
+	  <text>美丽的领结</text>
+	  <text>这是一条美丽的领结，戴上它尽显高贵气质！</text>
+	  <text>产品价格：20000</text>
+      <input type='number' name="money" value="20000" placeholder='0.00' hidden />
+    </view>
+  </view>
+  <view class='topup_tj'>
+    <button form-type="submit">成为优惠会员</button>
+  </view>
+  
+  <view class='topup_the_rules'>
+	<text>{{classname}}</text>
+	<text>{{content}}</text>
+	<text class="ts">*温馨提示：充值需谨慎，注意周围环境安全</text>
+  </view>
+  
+</form>
+</view>
+<view style='height:54px'></view>
+<include src="../footer/footer.wxml"/>

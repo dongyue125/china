@@ -18,7 +18,7 @@ Page({
 	fid:'1',
 	
 	//选择尺寸
-	chicun:'L',
+	chicun:'44',
 	
     // 使用data数据对象设置样式名  
     minusStatus: 'disabled'  
@@ -27,9 +27,15 @@ Page({
   
    onLoad: function (options) {
 	var WxParse = require('../../wxParse/wxParse.js');
-    var that = this
-	var id  = options.id
 	
+    var that = this
+	
+	if(options.scene){
+		var id = decodeURIComponent(query.scene)
+	}else{
+		var id  = options.id
+	}
+
 	var oid = ''
 	
 	if(oid == ''){
@@ -217,7 +223,7 @@ Page({
 			wx.showModal({
 				title: '提示',
 				showCancel: false,
-				content: '请点击我的授权登录！',
+				content: '请点击个人中心授权登录！',
 			});
 		  return false;
 		}

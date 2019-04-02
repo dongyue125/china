@@ -1,18 +1,18 @@
 <!--daren.wxml-->
 <include src="../header/header.wxml"/>
 <view class="container">
-  <view class='yy'>
-    <view class='yy_nav'>
-      <rich-text class='htz'>共享记录</rich-text>
-      <rich-text class='htz yy_nav_se'>我的名片</rich-text>
-    </view>
-    <text>{{classname}}</text>
-    <text>{{description}}</text>
+  <view class="y-nav">
+    <view class="nav1 active" catchtap="showexclusive">{{classname}}</view>
+    <view class="text">
+		{{description}}
+	</view>
   </view>
   <view class='exclusive'>
+	<button open-type="share">
     <image src='../../images/exclusive.jpg' mode='widthFix'></image>
     <image src='{{avatar}}'></image>
-    <image src='https://dadakan.com.cn/SmallApi.php?act=qrcode&uid={{uid}}'></image>
+    <image src='https://www.dadakan.com.cn/SmallApi.php?act=qrcode&uid={{uid}}'></image>
+	</button>
   </view>
 </view>
-<include src="../foot/foot.wxml"/>
+<include src="../footer/footer.wxml"/>

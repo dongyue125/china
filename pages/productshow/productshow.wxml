@@ -83,10 +83,6 @@
     <icon class="iconfont icon-goumai"></icon>
     <text>立即购买</text>
   </view>
-  <view class='footer_nav_01' catchtap="addcart" data-id="{{gid}}" data-current="cart">
-     <icon class="iconfont icon-gouwuche"></icon>
-    <text>加入购物车</text>
-  </view>
   <view class='footer_nav_01' catchtap="addcart" data-id="{{gid}}" data-current="group">
      <icon class="iconfont icon-pintuan"></icon>
     <text>立即拼团</text>
@@ -98,7 +94,7 @@
   <view class='footer_nav_01'>
     <button type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo"></button>
       <icon class="iconfont icon-gerenzhongxin"></icon>
-      <text>我的</text>
+      <text>个人中心</text>
   </view>
 	
 </view>

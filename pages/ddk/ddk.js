@@ -14,6 +14,7 @@ Page({
   
   onLoad: function (options) {
     var that = this
+	 var WxParse = require('../../wxParse/wxParse.js');
     //网络请求 GET方法
     wx.request({
       url: requestUrl, //仅为示例，并非真实的接口地址
@@ -24,13 +25,12 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res),
+        console.log(res);
+		var temp = WxParse.wxParse('content', 'html', res.data.description, that, 5);
         that.setData({
           classname:res.data.classname,
-		  description:res.data.description,
-		  message:res.data.message,
-		  dpic:res.data.dpic,
-		  list:res.data.play,
+		  content:temp,
+		  plist:res.data.play,
         }),
 		wx.setNavigationBarTitle({
 			title: that.data.classname,

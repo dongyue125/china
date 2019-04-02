@@ -10,29 +10,32 @@ Page({
     requestResult: '',
     hide: true,
   },
-  
-  
   onLoad: function (options) {
-    var that = this
-	var cid  = options.cid
+    var that = this;
+	var classid = options.cid;
+	var WxParse = require('../../wxParse/wxParse.js');
     //网络请求 GET方法
     wx.request({
       url: requestUrl, //仅为示例，并非真实的接口地址
       data: {
         act: 'newsgoods',
-		classid: cid,
+		classid:classid,
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res),
+        console.log(res);
+		var temp = WxParse.wxParse('content', 'html', res.data.message, that, 5);
+		var temp2 = WxParse.wxParse('info', 'html', res.data.content, that, 5);
+		
         that.setData({
 			cid:res.data.cid,
 			classname:res.data.classname,
-			message:res.data.message,
+			info:res.temp2,
+			content:temp,
 			list:res.data.goods,
-			clist:res.data.clist,
+			alist:res.data.alist,
         }),
 		wx.setNavigationBarTitle({
 			title: that.data.classname,
@@ -40,10 +43,6 @@ Page({
       }
     })
   },
-  
-  
-  
-  
   bindGetUserInfo: function(e) {
 	if (e.detail.userInfo) {
 		//用户按了允许授权按钮
@@ -57,6 +56,14 @@ Page({
 	}
   },
   
+  //测试
+  showceshi: function () {
+	wx.navigateTo({
+		url: '/pages/ceshi/ceshi',
+	})
+  },
+  
+  
   
   click: function () {
     this.setData({
@@ -64,7 +71,11 @@ Page({
     })
   },
   
- 
+  showcart: function () {
+	wx.navigateTo({
+		url: '/pages/cart/cart',
+	})
+  },
   
   
   showindex: function () {
@@ -88,6 +99,13 @@ Page({
       url: '/pages/product/product?cid='+cid,
     });
   },
+  
+  showproduct2: function (e) {
+    wx.navigateTo({
+      url: '/pages/productsb/productsb',
+    });
+  },
+  
   showlife: function () {
     wx.navigateTo({
       url: '/pages/life/life',
@@ -206,30 +224,20 @@ Page({
     });
   },
   
-  
   shownews: function (e) {
 	  var cid = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/news/news?cid='+cid,
     });
   },
-  
-  
-  product: function (e) {
-	  var cid = e.currentTarget.dataset.id;
+  showproduct: function (e) {
+	var cid = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/product/product?cid='+cid,
     });
   },
-  
-  showcart: function () {
-	wx.navigateTo({
-		url: '/pages/cart/cart',
-	})
-  },
-  
   showproductshow: function (e) {
-	  var id = e.currentTarget.dataset.id;
+	var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/productshow/productshow?id='+id,
     });

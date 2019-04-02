@@ -9,19 +9,18 @@ Page({
     takeSession: false,
     requestResult: '',
     hide: true,
-	
-	oid:'',
-	
     // input默认是1  
     num: 1,
+	
+	//默认20000
+	money:20000,
+	
     // 使用data数据对象设置样式名  
     minusStatus: 'disabled'
   },
   
-  
-  
-  
   onLoad: function (options){
+	  var WxParse = require('../../wxParse/wxParse.js');
     var that = this
     //网络请求 GET方法
     wx.request({
@@ -33,172 +32,116 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res),
+        console.log(res);
+		var temp = WxParse.wxParse('content', 'html', res.data.content, that, 5);
         that.setData({
 		  classname:res.data.classname,
-		  content:res.data.content,
+		  content:temp,
+		  money:res.data.money,
         })
       }
     })
   },
   
+  bindmoney : function (e){
+	  var that = this
+	  var money = e.currentTarget.dataset.current;
+	  console.log(money);
+	  that.setData({
+		  money:money,
+      })
+  },
   
-  
-  formSubmit(e) {
+  recharge: function(e){
 	var that = this
-	if(e.detail.value.money==''){
-	  wx.showModal({
-		title: '提示',
-		showCancel: false,
-		content: '请输入充值金额！',
-	  });
-	  return false;
-	}
-	else if(e.detail.value.money < 0.01){
-		wx.showModal({
-		title: '提示',
-		showCancel: false,
-		content: '充值金额不能小于0.01！',
-	  });
-	  return false;
-	}
-	else if(e.detail.value.money > 50000){
-		wx.showModal({
-		title: '提示',
-		showCancel: false,
-		content: '充值金额不能大于50000！',
-	  });
-	  return false;
-	}
-	else{
-		wx.getStorage({
-			key: 'third_Session',
-			success(res) {
-				wx.request({
-				  url: requestUrl, //仅为示例，并非真实的接口地址
-				  method: "POST",
-				  data: {
-					act: 'do_recharge',
-					session:res.data,
-					money : e.detail.value.money,
-				  },
-				  header: {
-					"Content-Type": "application/x-www-form-urlencoded"
-				  },
-				  success(res) {
-					if(res.data.error == 'fail'){
-						wx.showModal({
-							title: '提示',
-							showCancel: false,
-							content: res.data.msg,
-						});
-						return false;
-					}else{
-						that.setData({
-						  oid:res.data.oid,
-						})
-						wx.request({
-						  url: requestUrl, //仅为示例，并非真实的接口地址
-						  method: "POST",
-						  data: {
-							act: 'pay_recharge',
-							oid:res.data.oid,
-						  },
-						  header: {
-							"Content-Type": "application/x-www-form-urlencoded"
-						  },
-						  success(res) {
-							if(res.data.error == 'fail'){
-								wx.showModal({
-									title: '提示',
-									showCancel: false,
-									content: res.data.msg,
-								});
-								return false;
-							}else{
-								wx.requestPayment({
-									'timeStamp': res.data.timeStamp,
-									'nonceStr': res.data.nonceStr,
-									'package': res.data.package,
-									'signType': res.data.signType,
-									'paySign': res.data.paySign,
-									'success':function(res){
-										wx.request({
-										  url: requestUrl, //仅为示例，并非真实的接口地址
-										  data: {
-											act: 'update_recharge',
-											oid: that.data.oid,
-										  },
-										  header: {
-											'content-type': 'application/json' // 默认值
-										  },
-										  success(res) {
-											wx.navigateTo({
-												url: '/pages/complete/complete',
-											});
-										  }
-										})
-									},
-									'fail':function(res){
-										console.log('充值失败！');
-									},
-									'complete':function(res){
-										console.log(res);
-									}
-								})
-							}
-						  }
-						})
-						
-					}
-				  }
-				})
-			}
-		})
-	}
+	wx.getStorage({
+		key: 'third_Session',
+		success(res) {
+			console.log(that.data.money);
+			wx.request({
+			  url: requestUrl, //仅为示例，并非真实的接口地址
+			  method: "POST",
+			  data: {
+				act: 'do_recharge',
+				session:res.data,
+				money : that.data.money,
+			  },
+			  header: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			  },
+			  success(res) {
+				if(res.data.error == 'fail'){
+					wx.showModal({
+						title: '提示',
+						showCancel: false,
+						content: res.data.msg,
+					});
+					return false;
+				}else{
+					that.setData({
+					  oid:res.data.oid,
+					})
+					wx.request({
+					  url: requestUrl, //仅为示例，并非真实的接口地址
+					  method: "POST",
+					  data: {
+						act: 'pay_recharge',
+						oid:res.data.oid,
+					  },
+					  header: {
+						"Content-Type": "application/x-www-form-urlencoded"
+					  },
+					  success(res) {
+						if(res.data.error == 'fail'){
+							wx.showModal({
+								title: '提示',
+								showCancel: false,
+								content: res.data.msg,
+							});
+							return false;
+						}else{
+							wx.requestPayment({
+								'timeStamp': res.data.timeStamp,
+								'nonceStr': res.data.nonceStr,
+								'package': res.data.package,
+								'signType': res.data.signType,
+								'paySign': res.data.paySign,
+								'success':function(res){
+									wx.request({
+									  url: requestUrl, //仅为示例，并非真实的接口地址
+									  data: {
+										act: 'update_recharge',
+										oid: that.data.oid,
+									  },
+									  header: {
+										'content-type': 'application/json' // 默认值
+									  },
+									  success(res) {
+										var orderid = res.data.orderid;
+										wx.navigateTo({
+											//url: '/pages/complete/complete?id='+orderid,
+											url: '/pages/personal/personal'
+										});
+									  }
+									})
+								},
+								'fail':function(res){
+									console.log('充值失败！');
+								},
+								'complete':function(res){
+									console.log(res);
+								}
+							})
+						}
+					  }
+					})
+					
+				}
+			  }
+			})
+		}
+	})
   },
-  
-  
-  
-  
-  /* 点击减号 */
-  bindMinus: function () {
-    var num = this.data.num;
-    // 如果大于1时，才可以减  
-    if (num > 1) {
-      num--;
-    }
-    // 只有大于一件的时候，才能normal状态，否则disable状态  
-    var minusStatus = num <= 1 ? 'disabled' : 'normal';
-    // 将数值与状态写回  
-    this.setData({
-      num: num,
-      minusStatus: minusStatus
-    });
-  },
-  /* 点击加号 */
-  bindPlus: function () {
-    var num = this.data.num;
-    // 不作过多考虑自增1  
-    num++;
-    // 只有大于一件的时候，才能normal状态，否则disable状态  
-    var minusStatus = num < 1 ? 'disabled' : 'normal';
-    // 将数值与状态写回  
-    this.setData({
-      num: num,
-      minusStatus: minusStatus
-    });
-  },
-  /* 输入框事件 */
-  bindManual: function (e) {
-    var num = e.detail.value;
-    // 将数值与状态写回  
-    this.setData({
-      num: num
-    });
-  },
-  
-  
   
   bindGetUserInfo: function(e) {
 	if (e.detail.userInfo) {
@@ -212,6 +155,7 @@ Page({
 		console.log('用户拒绝了授权！');
 	}
   },
+  
   
   
   click: function () {
@@ -373,8 +317,16 @@ Page({
     });
   },
   
-  
-  
+  showmade: function () {
+    wx.navigateTo({
+      url: '/pages/made/made',
+    })
+  },
+  showproductsb: function () {
+    wx.navigateTo({
+      url: '/pages/productsb/productsb',
+    })
+  },
   
   
 })

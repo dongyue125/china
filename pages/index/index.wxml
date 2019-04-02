@@ -1,37 +1,87 @@
 <!--index.wxml-->
 <include src="../header/header.wxml"/>
+
 <view class="container">
-  <view class="fldz">
-    <view class="fldz_01">
-      <text class='htz'>“搭搭看”穿搭服务公共平台</text>
-      <text class='gengduo' catchtap="showdaren">更多视频</text>
+  <view class="first select" catchtap="showdaren">
+    <view class="title-group">
+       <view class="title">{{dclassname}}</view>
+       <view class="text">
+          {{description}}
+       </view>
     </view>
-    <video src='{{vurl}}' poster='{{vpic}}'></video>
+    <image src='{{bpic}}' mode="widthFix"></image>
   </view>
-  <view class='ddk'>
-    <view class='htz ddk_01'>
-    男人不会穿 女人不喜欢
+  
+  
+  
+  <view class="second select" catchtap="showddk">
+    <view class="title-group">
+       <view class="title">{{cclassname}}</view>
+       <view class="text">
+          {{cdescription}}
+       </view>
     </view>
-    <view class='ddk_02' catchtap="showsddk">
-      <image src='{{dpic}}' mode="widthFix"></image>
+    <image src='{{cdpic}}' mode="widthFix"></image>
+  </view>
+  
+  
+  <view class="three select">
+    <view class="title-group" catchtap="showproduct" data-id="11">
+       <view class="title">2019春季新品</view>
+       <view class="text">
+          {{ndescription}}
+       </view>
+    </view>
+    <view class="tu" style="background-image:url({{npic}})">
+      <view class="li-group" wx:for="{{nlist}}" wx:key="1" catchtap="{{item.url}}" data-id="{{item.catid}}">
+        <image src='{{item.picurl}}' mode="widthFix"></image>
+        <view class="text">
+          {{item.description}}
+        </view>
+      </view>
     </view>
   </view>
-  <view class='lxzx' catchtap="shownews" data-id="75">
-    <image src='{{lpic}}' mode='widthFix'></image>
-    <text class='htz'>{{lname}}</text>
+  
+  
+  <view class="three fourth select">
+    <view class="title-group">
+       <view class="title">{{jclassname}}</view>
+       <view class="text">
+         {{jdescription}}
+       </view>
+    </view>
+    <view class="tu" style="background-image:url({{jpic}})">
+      <view class="li-group" wx:for="{{jlist}}" wx:key="1" catchtap="{{item.url2}}">
+        <view class="title1">{{item.classname}}</view>
+        <view class="text">
+          {{item.description}}
+        </view>
+      </view>
+    </view>
   </view>
-  <view class='lxzx' catchtap="shownews" data-id="73">
-    <image src='{{cpic}}' mode='widthFix'></image>
-    <text class='htz'>{{cname}}</text>
-  </view>
-  <view class='qyzyzdz' catchtap="showhistory">
-    <image src='{{npic}}' mode="widthFix"></image>
-  </view>
-  <view class='qyzyzdz' catchtap="showrecruiting">
-    <image src='{{tpic}}' mode="widthFix"></image>
-  </view>
-  <view class='qyzyzdz' catchtap="showcooperation">
-    <image src='{{zpic}}' mode="widthFix"></image>
+
+  <view class="last">
+    <view class="dl">
+      <view class="dd" catchtap="shownews" data-id="73">
+        <image src='{{cpic}}' mode="widthFix"></image>
+        <view class="h4">{{cname}}</view>
+      </view>
+      <view class="dd" catchtap="shownews" data-id="75">
+        <image src='{{lpic}}' mode="widthFix"></image>
+        <view class="h4">{{lname}}</view>
+      </view>
+	  <view class="dd" catchtap="showcooperation">
+        <image src='{{tpic}}' mode="widthFix"></image>
+        <view class="h4">{{tname}}</view>
+      </view>
+      <view class="dd" catchtap="showrecurit">
+        <image src='{{zpic}}' mode="widthFix"></image>
+        <view class="h4">{{zname}}</view>
+      </view>
+      
+    </view>
   </view>
 </view>
+
+<view class="btn7">更多了解风雷企业</view>
 <include src="../footer/footer.wxml"/>

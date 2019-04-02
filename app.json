@@ -35,6 +35,7 @@
     "pages/cooperation/cooperation",
     "pages/productshow/productshow",
     "pages/product/product",
+	"pages/productsb/productsb",
     "pages/header/header",
     "pages/footer/footer",
     "pages/foot/foot"

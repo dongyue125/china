@@ -1,15 +1,17 @@
 <!--daren.wxml-->
 <include src="../header/header.wxml"/>
 <view class="container">
-  <view class='yy'>
-    <view class='yy_nav'>
-      <rich-text class='{{item.catid==cid ? "htz yy_nav_se" : ""}}' wx:for="{{clist}}" wx:key="{{item.catid}}" catchtap="shownews" data-id="{{item.catid}}">{{item.cname}}</rich-text>
+  <view class="y-nav">
+    <view class='y_nav'>
+      <view class='nav1 {{item.catid==cid ? "active" : ""}}' wx:for="{{clist}}" wx:key="{{item.catid}}" catchtap="shownews" data-id="{{item.catid}}">{{item.cname}}</view>
     </view>
-    <text>{{classname}}</text>
-    <text>{{message}}</text>
+    <view class="text">
+		<import src="../../wxParse/wxParse.wxml"/>
+		<template is="wxParse" data="{{wxParseData:message.nodes}}"/>
+	</view>
   </view>
+  
 <view class='center'>
-
   <view class='news' catchtap="shownewsshow" wx:for="{{news}}" wx:key="{{item.id}}" data-id="{{item.id}}">
     <image src='{{item.picurl}}' mode='widthFix'></image>
     <view class='news_con'>

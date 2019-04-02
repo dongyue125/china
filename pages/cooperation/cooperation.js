@@ -12,6 +12,7 @@ Page({
   },
   
   onLoad: function (options) {
+	  var WxParse = require('../../wxParse/wxParse.js');
     var that = this
     //网络请求 GET方法
     wx.request({
@@ -23,11 +24,13 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res),
-        that.setData({
+        console.log(res);
+		var temp = WxParse.wxParse('content', 'html', res.data.description, that, 5);
+        var temp2 = WxParse.wxParse('info', 'html', res.data.info, that, 5);
+		that.setData({
          classname:res.data.classname,
-		 description:res.data.description,
-		 plist:res.data.partner,
+		 content:temp,
+		 info:temp2,
         })
       }
     })
