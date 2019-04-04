@@ -144,8 +144,8 @@
 	font-size: 14px;
   display: block
 }
-.logo{width: 32px;display: block;position: absolute;top:12px;left: 50%;margin-left: -16px}
-.logo image{width:100%;}
+.logo{width: 50px;display: block;position: absolute;top:10px;left: 50%;margin-left: -25px}
+.logo image{width:100%;display: block}
 .htz{font-family: '黑体';}
 .footer{background: #2a2a2a;width: 100%;padding: 20px;box-sizing:border-box;text-align: center;font-size: 13px;color: #fff;}
 .footer text{display: block}
