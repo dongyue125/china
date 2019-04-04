@@ -87,6 +87,7 @@
      <icon class="iconfont icon-pintuan"></icon>
     <text>立即拼团</text>
   </view>
+  
   <view class='footer_nav_01' catchtap="showsubscribe">
     <icon class="iconfont icon-yuyue"></icon>
     <text>预约到店</text>

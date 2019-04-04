@@ -16,7 +16,7 @@ Page({
 	country: '',
 	address: '',
 	
-	
+	fid:'',
 	size:'',
 	fabric:'',
 	amount:'',
@@ -61,6 +61,7 @@ Page({
 				that.setData({
 					info:res.data.info,
 					gid:res.data.gid,
+					fid:res.data.fid,
 					title:res.data.title,
 					description:res.data.description,
 					picurl:res.data.picurl,
@@ -104,6 +105,7 @@ Page({
         act: 'math',
 		num: num,
 		gid:gid,
+		fid:that.data.fid,
 		cate:cate,
       },
       header: {
@@ -138,6 +140,7 @@ Page({
         act: 'math',
 		num: num,
 		gid:gid,
+		fid:that.data.fid,
 		cate:cate,
       },
       header: {
@@ -157,12 +160,13 @@ Page({
   
   /*提交订单*/
   buy:function (e){
-	  var that = this;
+	var that = this;
 	var gid = e.currentTarget.dataset.id;
 	var amount = e.currentTarget.dataset.current;
 	var num = e.currentTarget.dataset.num;
 	var size = that.data.size;
-	var fabric = that.data.fabric;
+	//var fabric = that.data.fabric;
+	var fabric = that.data.fid;
 	  //网络请求 GET方法
 	wx.getStorage({
 		key: 'third_Session',

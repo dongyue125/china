@@ -55,14 +55,13 @@ Page({
 									},
 									success(res) {
 									  if(res.data.msg=='success') {
+										  console.log(res.data);
 										that.setData({
 										  avatarurl:res.data.avatar,
 										  nickname:res.data.nickname,
 										  money:res.data.money,
 										  allo:res.data.allo,
-										
 										  payment:res.data.payment,
-										 
 										})
 									  }else{
 										console.log('获取信息失败');

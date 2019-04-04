@@ -26,6 +26,8 @@ Page({
 	getime:'',
 	
 	oid:'',
+	fid:'',
+	gid:'',
 	
     hide: true,
     // input默认是1  
@@ -79,6 +81,7 @@ Page({
 				console.log(res),
 				that.setData({
 					gid:res.data.gid,
+					fid:res.data.fid,
 					oid:res.data.oid,
 					title:res.data.title,
 					description:res.data.description,
@@ -130,6 +133,7 @@ Page({
         act: 'math',
 		num: num,
 		gid:gid,
+		fid:that.data.fid,
 		cate:cate,
       },
       header: {
@@ -165,6 +169,7 @@ Page({
         act: 'math',
 		num: num,
 		gid:gid,
+		fid:that.data.fid,
 		cate:cate,
       },
       header: {
@@ -198,7 +203,7 @@ Page({
 	var gid = e.currentTarget.dataset.id;
 	
 	var oid = that.data.oid;
-	
+	var fid = that.data.fid;
 	var amount = e.currentTarget.dataset.current;
 	var num = e.currentTarget.dataset.num;
 	var size = that.data.size;
@@ -217,7 +222,7 @@ Page({
 				oid: oid,
 				amount:amount,
 				num:num,
-				fabric:fabric,
+				fabric:fid,
 				size:size,
 				session:res.data,
 			  },
