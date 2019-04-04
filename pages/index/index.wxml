@@ -83,5 +83,5 @@
   </view>
 </view>
 
-<view class="btn7">更多了解风雷企业</view>
+<view class="btn7" catchtap="showddk">更多了解搭搭看穿搭服务平台</view>
 <include src="../footer/footer.wxml"/>
