@@ -48,6 +48,15 @@
     </view>
    </view>
    
+   <view class='productshow productshow_04'>
+    <view class='center'>
+      <text>成衣尺码对照表</text>
+      <view class='fabric'>
+        <image src='../../images/cy_size.png' mode="widthFix" title="成衣尺码对照表"></image>
+      </view>
+    </view>
+   </view>
+   
    
    
    <view class='productshow productshow_06'>
