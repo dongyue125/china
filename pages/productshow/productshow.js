@@ -35,7 +35,7 @@ Page({
     var that = this
 	
 	if(options.scene){
-		var id = decodeURIComponent(query.scene)
+		var id = decodeURIComponent(options.scene)
 	}else{
 		var id  = options.id
 	}
