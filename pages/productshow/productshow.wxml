@@ -10,7 +10,7 @@
             bindchange="swiperchange">
             <block wx:for="{{banners}}" wx:key="1">
                 <swiper-item>
-                    <image data-id="{{item.businessId}}" src="{{item}}" class="slide-image"/>
+                    <image data-id="{{item.businessId}}" src="{{item}}" class="slide-image" mode="widthFix"/>
                 </swiper-item>
             </block>
         </swiper> 
