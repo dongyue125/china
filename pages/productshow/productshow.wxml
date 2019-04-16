@@ -41,6 +41,22 @@
       <text>正品保证 · 送货上门 · 极速退款 · 免费干洗</text>
     </view>
    </view>
+   
+  
+   
+   
+   <view class='productshow head_portrait' wx:if="{{groupwarn==true}}">
+	   <view class='center' wx:for="{{olist}}" wx:key="1" wx:if="{{item.count >0}}">
+      <view class="li-group">
+        <image src='{{item.avatar}}' mode='widthFix'></image>
+        <view class='h4'>
+          <view class="text">{{item.username}} 发起了拼团，还差 <view>{{item.count}}</view>人成团</view>
+          <button class="pt7" catchtap="addcart" data-id="{{gid}}" data-current="group" data-oid="{{item.oid}}">参与拼团</button>
+        </view>
+      </view>
+     </view>
+   </view>
+   
   
    <view class='productshow productshow_04'>
     <view class='center'>
@@ -50,6 +66,8 @@
       </view>
     </view>
    </view>
+   
+   
    
    
    <view class='productshow productshow_05'>

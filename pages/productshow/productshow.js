@@ -9,6 +9,9 @@ Page({
     interval: 5000,
     duration: 1000,
     hide: true,
+	
+	groupwarn:'',
+	
     // input默认是1  
     num: 1,
 	
@@ -41,13 +44,11 @@ Page({
 	}else{
 		var id  = options.id
 	}
-
-	var oid = ''
 	
-	if(oid == ''){
-		oid = 0
+	if(options.oid){
+		var oid = options.oid
 	}else{
-		oid = options.oid
+		var oid = 0
 	}
 	
     //网络请求 GET方法
@@ -56,6 +57,7 @@ Page({
       data: {
         act: 'goodsshow',
 		id: id,
+		oid:oid,
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -65,12 +67,14 @@ Page({
 		var temp = WxParse.wxParse('content', 'html', res.data.content, that, 5);
         that.setData({
 			gid:res.data.id,
-			oid:oid,
+			oid:res.data.oid,
 			cid:res.data.cid,
 			title:res.data.title,
 			description:res.data.description,
 			price:res.data.price,
 			old_price:res.data.old_price,
+			olist:res.data.olist,
+			groupwarn:res.data.groupwarn,
 			sales:res.data.m_sales,
 			ysales:res.data.y_sales,
 			remit:res.data.remit,
@@ -315,6 +319,15 @@ Page({
       url: '/pages/product/product?cid='+cid,
     });
   },
+  
+  showproductshow : function (e){
+	  var oid = e.currentTarget.dataset.current;
+	  var id = e.currentTarget.dataset.id;
+	  wx.navigateTo({
+		url: '/pages/productshow/productshow?id='+id+'&oid='+oid,
+      });
+  },
+  
   showlife: function () {
     wx.navigateTo({
       url: '/pages/life/life',
